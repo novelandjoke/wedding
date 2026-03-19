@@ -558,15 +558,11 @@
 
     fetch(SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({ name: name, phone: phone, events: events })
     })
-    .then(function(res) { return res.json(); })
-    .then(function(data) {
-      document.querySelector('.submit-btn').style.display = 'none';
-      document.getElementById('form-result').style.display = 'block';
-    })
-    .catch(function() {
+    .finally(function() {
       document.querySelector('.submit-btn').style.display = 'none';
       document.getElementById('form-result').style.display = 'block';
     });
