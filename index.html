@@ -1,633 +1,577 @@
-```html
- <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width,
- initial-scale=1.0" />
-   <title>경민 ♥ 채윤 결혼식</title>
-   <style>
-     /* ===== 전체 기본 설정 ===== */
-     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-     body {
-       font-family: 'Noto Serif KR', 'Malgun Gothic', serif;
-       background-color: #f5f0e8;
-       color: #4a4a4a;
-       max-width: 480px;
-       margin: 0 auto;
-     }
-
-     /* ===== 메인 타이틀 섹션 ===== */
-     .hero {
-       background: linear-gradient(160deg, #e8f4f0 0%, #f5f0e8 60%,   
- #eaf0e8 100%);
-       text-align: center;
-       padding: 60px 30px 40px;
-       border-bottom: 1px solid #ddd5c5;
-     }
-
-     .hero-date {
-       font-size: 13px;
-       letter-spacing: 3px;
-       color: #7a9e8a;
-       margin-bottom: 16px;
-       text-transform: uppercase;
-     }
-
-     .hero h1 {
-       font-size: 32px;
-       font-weight: 400;
-       color: #3d3d3d;
-       line-height: 1.6;
-       margin-bottom: 8px;
-     }
-
-     .hero h1 .heart {
-       color: #7a9e8a;
-       font-size: 20px;
-     }
-
-     .hero-sub {
-       font-size: 13px;
-       color: #999;
-       margin-top: 12px;
-     }
-
-     /* ===== 섹션 공통 ===== */
-     section {
-       padding: 40px 24px;
-       border-bottom: 1px solid #e8e0d0;
-     }
-
-     .section-title {
-       font-size: 11px;
-       letter-spacing: 4px;
-       color: #7a9e8a;
-       text-transform: uppercase;
-       text-align: center;
-       margin-bottom: 24px;
-     }
-
-     /* ===== 인사 편지 ===== */
-     .letter {
-       background: #fffdf8;
-       border: 1px solid #e8dfc8;
-       border-radius: 4px;
-       padding: 28px 24px;
-       line-height: 2;
-       font-size: 14px;
-       color: #555;
-       white-space: pre-line;
-     }
-
-     .letter-sign {
-       margin-top: 20px;
-       text-align: right;
-       font-size: 14px;
-       color: #7a9e8a;
-     }
-
-     /* ===== 일정 카드 ===== */
-     .schedule-card {
-       background: #fffdf8;
-       border: 1px solid #e8dfc8;
-       border-radius: 4px;
-       padding: 24px;
-       margin-bottom: 16px;
-     }
-
-     .schedule-card:last-child { margin-bottom: 0; }
-
-     .schedule-tag {
-       display: inline-block;
-       background: #7a9e8a;
-       color: white;
-       font-size: 11px;
-       padding: 3px 10px;
-       border-radius: 20px;
-       letter-spacing: 1px;
-       margin-bottom: 12px;
-     }
-
-     .schedule-card h3 {
-       font-size: 18px;
-       font-weight: 500;
-       color: #3d3d3d;
-       margin-bottom: 6px;
-     }
-
-     .schedule-date {
-       font-size: 13px;
-       color: #7a9e8a;
-       margin-bottom: 10px;
-     }
-
-     .schedule-note {
-       font-size: 12px;
-       color: #999;
-       font-style: italic;
-       margin-top: 6px;
-     }
-
-     /* ===== 주소 복사 버튼 ===== */
-     .address-box {
-       display: flex;
-       align-items: center;
-       justify-content: space-between;
-       background: #f0ece2;
-       border-radius: 4px;
-       padding: 10px 14px;
-       margin-top: 10px;
-       gap: 8px;
-     }
-
-     .address-text {
-       font-size: 12px;
-       color: #666;
-       flex: 1;
-       line-height: 1.5;
-     }
-
-     .copy-btn {
-       background: none;
-       border: 1px solid #7a9e8a;
-       color: #7a9e8a;
-       font-size: 11px;
-       padding: 4px 10px;
-       border-radius: 20px;
-       cursor: pointer;
-       white-space: nowrap;
-       flex-shrink: 0;
-     }
-
-     .copy-btn:active { background: #7a9e8a; color: white; }
-
-     /* ===== 사진 갤러리 ===== */
-     .gallery-grid {
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-       gap: 6px;
-     }
-
-     .gallery-grid img {
-       width: 100%;
-       aspect-ratio: 1;
-       object-fit: cover;
-       border-radius: 3px;
-     }
-
-     .gallery-more {
-       display: block;
-       text-align: center;
-       margin-top: 16px;
-       padding: 12px;
-       border: 1px solid #7a9e8a;
-       border-radius: 4px;
-       color: #7a9e8a;
-       font-size: 13px;
-       text-decoration: none;
-     }
-
-     /* ===== 계좌번호 ===== */
-     .account-group {
-       margin-bottom: 24px;
-     }
-
-     .account-group h4 {
-       font-size: 13px;
-       color: #999;
-       margin-bottom: 12px;
-       padding-bottom: 8px;
-       border-bottom: 1px solid #e8e0d0;
-     }
-
-     .account-row {
-       display: flex;
-       align-items: center;
-       justify-content: space-between;
-       padding: 10px 0;
-       border-bottom: 1px solid #f0ece2;
-     }
-
-     .account-info {
-       font-size: 13px;
-       color: #555;
-     }
-
-     .account-info span {
-       display: block;
-       font-size: 11px;
-       color: #999;
-       margin-top: 2px;
-     }
-
-     /* ===== 참석 여부 폼 ===== */
-     .rsvp-form {
-       background: #fffdf8;
-       border: 1px solid #e8dfc8;
-       border-radius: 4px;
-       padding: 24px;
-     }
-
-     .form-group {
-       margin-bottom: 16px;
-     }
-
-     .form-group label {
-       display: block;
-       font-size: 12px;
-       color: #888;
-       margin-bottom: 6px;
-       letter-spacing: 1px;
-     }
-
-     .form-group input {
-       width: 100%;
-       padding: 10px 14px;
-       border: 1px solid #d8d0c0;
-       border-radius: 4px;
-       font-size: 14px;
-       background: #fafafa;
-       outline: none;
-     }
-
-     .form-group input:focus {
-       border-color: #7a9e8a;
-     }
-
-     .checkbox-group {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-
-     .checkbox-item {
-       display: flex;
-       align-items: center;
-       gap: 10px;
-       padding: 12px;
-       border: 1px solid #d8d0c0;
-       border-radius: 4px;
-       cursor: pointer;
-     }
-
-     .checkbox-item input[type="checkbox"] {
-       width: 18px;
-       height: 18px;
-       accent-color: #7a9e8a;
-       flex-shrink: 0;
-     }
-
-     .checkbox-item label {
-       font-size: 13px;
-       color: #555;
-       cursor: pointer;
-       margin: 0;
-     }
-
-     .checkbox-item label span {
-       display: block;
-       font-size: 11px;
-       color: #999;
-       margin-top: 2px;
-     }
-
-     .submit-btn {
-       width: 100%;
-       padding: 14px;
-       background: #7a9e8a;
-       color: white;
-       border: none;
-       border-radius: 4px;
-       font-size: 15px;
-       cursor: pointer;
-       margin-top: 8px;
-       letter-spacing: 1px;
-     }
-
-     .submit-btn:active { background: #5d8a70; }
-
-     .form-result {
-       text-align: center;
-       padding: 20px;
-       font-size: 14px;
-       color: #7a9e8a;
-       display: none;
-     }
-
-     /* ===== 하단 ===== */
-     footer {
-       text-align: center;
-       padding: 30px 24px;
-       font-size: 12px;
-       color: #bbb;
-       letter-spacing: 2px;
-     }
-
-     /* ===== 복사 완료 토스트 ===== */
-     .toast {
-       position: fixed;
-       bottom: 30px;
-       left: 50%;
-       transform: translateX(-50%);
-       background: rgba(0,0,0,0.75);
-       color: white;
-       padding: 10px 20px;
-       border-radius: 20px;
-       font-size: 13px;
-       opacity: 0;
-       transition: opacity 0.3s;
-       pointer-events: none;
-       z-index: 1000;
-     }
-
-     .toast.show { opacity: 1; }
-   </style>
- </head>
- <body>
-
- <!-- ===== 헤더 ===== -->
- <div class="hero">
-   <p class="hero-date">April 26, 2026</p>
-   <h1>경민 <span class="heart">♥</span> 채윤</h1>
-   <p style="font-size:13px; color:#888; margin-top:8px;">문경민 ·    
- 김채윤</p>
-   <p class="hero-sub">소설과 농담, 제주</p>
- </div>
-
- <!-- ===== 인사 편지 ===== -->
- <section>
-   <p class="section-title">Letter</p>
-   <div class="letter">안녕하세요.
- 오는 4월 26일, 제주에서 결혼식을 올리는 문경민과 김채윤입니다.       
-
- 이 편지를 받으셨다면 오랜 시간 저희 두 사람, 혹은 부모님과 가까이    
- 지낸 사이겠지요. 그간 함께해주셔서, 그리고 저희 두 사람의 결혼식     
- 초청에 응해주셔서 정말 감사합니다.
-
- 청첩은 '정중히 청하다'는 말과 '편지'라는 뜻이 더해진 말이라고        
- 합니다. 무심히 결혼 날짜와 장소를 적어 보내기보다, 편지를 받아주신   
- 분들께 감사 인사를 먼저 전해드리고 싶었습니다.
-
- 지난 2021년 가을 처음 만나, 4년이 넘는 시간 동안 인연을 이어온 저희  
- 두 사람이 가족이 되기로 약속하는 날에 자리를 빛내주셨으면 합니다.    
- 보내주시는 박수와 격려만큼 다정하고 따뜻한 마음으로 앞길을
- 함께하겠습니다.</div>
-   <p class="letter-sign">경민, 채윤 드림</p>
- </section>
-
- <!-- ===== 결혼식 정보 ===== -->
- <section>
-   <p class="section-title">Information</p>
-   <div style="text-align:center; margin-bottom:24px;">
-     <p style="font-size:14px; color:#888; margin-bottom:4px;">신랑   
- 측 부모님</p>
-     <p style="font-size:14px; color:#555;">문태범 · 김희자</p>       
-     <p style="font-size:14px; color:#888; margin-top:12px;
- margin-bottom:4px;">신부 측 부모님</p>
-     <p style="font-size:14px; color:#555;">김일도 · 조은순</p>       
-   </div>
- </section>
-
- <!-- ===== 일정 ===== -->
- <section>
-   <p class="section-title">Schedule</p>
-
-   <!-- 창원 피로연 -->
-   <div class="schedule-card">
-     <span class="schedule-tag">창원 피로연</span>
-     <h3>세코 더그레이드</h3>
-     <p class="schedule-date">2026년 4월 18일 토요일 | 오후 12시 –    
- 3시</p>
-     <div class="address-box">
-       <p class="address-text">경남 창원시 성산구 원이대로
- 362<br>창원컨벤션센터 1층 세코연회장</p>
-       <button class="copy-btn" onclick="copyText('경남 창원시 성산구 
-  원이대로 362 창원컨벤션센터 1층 세코연회장', this)">복사</button>   
-     </div>
-   </div>
-
-   <!-- 제주 피로연 -->
-   <div class="schedule-card">
-     <span class="schedule-tag">제주 피로연</span>
-     <h3>더 컨벤션 제주</h3>
-     <p class="schedule-date">2026년 4월 18일 토요일 | 오후 12시 –    
- 3시</p>
-     <div class="address-box">
-       <p class="address-text">제주시 연사6길 61<br>오션타워 3층</p>  
-       <button class="copy-btn" onclick="copyText('제주시 연사6길 61  
- 오션타워 3층', this)">복사</button>
-     </div>
-   </div>
-
-   <!-- 제주 결혼식 -->
-   <div class="schedule-card">
-     <span class="schedule-tag">제주 결혼식</span>
-     <h3>소설과 농담</h3>
-     <p class="schedule-date">2026년 4월 26일 일요일 | 오후 3시       
- 30분</p>
-     <p class="schedule-note">카페에서 소규모로 진행합니다.</p>       
-     <div class="address-box">
-       <p class="address-text">제주시 남성로 160<br>소설과 농담</p>   
-       <button class="copy-btn" onclick="copyText('제주시 남성로 160  
- 소설과 농담', this)">복사</button>
-     </div>
-   </div>
- </section>
-
- <!-- ===== 사진 갤러리 ===== -->
- <section>
-   <p class="section-title">Gallery</p>
-   <div class="gallery-grid">
-     <!--
-       ⭐ 수정 필요: 아래 src의 "파일ID" 부분을 구글 드라이브 사진    
- 파일 ID로 교체
-       형식: https://drive.google.com/uc?export=view&id=파일ID        
-     -->
-     <img src="https://drive.google.com/uc?export=view&id=1-eUZWTDDCOJb4P8Iz9DNcT9Sm81tziLs"   
- alt="웨딩 사진 1" onerror="this.style.display='none'" />
-     <img src="https://drive.google.com/uc?export=view&id=11tOxeJQUeXUGGP5ZAaa1QuxGDu3umxWH"   
- alt="웨딩 사진 2" onerror="this.style.display='none'" />
-     <img src="https://drive.google.com/uc?export=view&id=12mQtu0MdvlA9L75lop1vabgo_aFNEfhV"   
- alt="웨딩 사진 3" onerror="this.style.display='none'" />
-     <img src="https://drive.google.com/uc?export=view&id=16MLzve5LI9kmEd4MAR7aicx2xE-VILht"   
- alt="웨딩 사진 4" onerror="this.style.display='none'" />
-   </div>
-   <!--
-     ⭐ 수정 필요: href의 "폴더ID" 부분을 구글 드라이브 웨딩사진 폴더 
-  ID로 교체
-   -->
-   <a class="gallery-more"
- href="https://drive.google.com/drive/folders/14LMSvWiDEwln326urgSGAlRwE0ikCvLR"
- target="_blank">
-     사진 더 보기 →
-   </a>
- </section>
-
- <!-- ===== 마음 전하실 곳 ===== -->
- <section>
-   <p class="section-title">Account</p>
-
-   <div class="account-group">
-     <h4>신랑 측</h4>
-     <div class="account-row">
-       <div class="account-info">
-         문태범
-         <span>농협 901017-56-109599</span>
-       </div>
-       <button class="copy-btn" onclick="copyText('농협
- 901017-56-109599 문태범', this)">복사</button>
-     </div>
-     <div class="account-row">
-       <div class="account-info">
-         김희자
-         <span>농협 178495-52-115871</span>
-       </div>
-       <button class="copy-btn" onclick="copyText('농협
- 178495-52-115871 김희자', this)">복사</button>
-     </div>
-   </div>
-
-   <div class="account-group">
-     <h4>신부 측</h4>
-     <div class="account-row">
-       <div class="account-info">
-         김일도
-         <span>경남은행 600-22-0098565</span>
-       </div>
-       <button class="copy-btn" onclick="copyText('경남은행
- 600-22-0098565 김일도', this)">복사</button>
-     </div>
-     <div class="account-row">
-       <div class="account-info">
-         조은순
-         <span>농협 808-12-523663</span>
-       </div>
-       <button class="copy-btn" onclick="copyText('농협 808-12-523663 
-  조은순', this)">복사</button>
-     </div>
-   </div>
- </section>
-
- <!-- ===== 참석 여부 ===== -->
- <section>
-   <p class="section-title">RSVP</p>
-   <div class="rsvp-form">
-     <div class="form-group">
-       <label>이름</label>
-       <input type="text" id="name" placeholder="성함을 입력해주세요" 
-  />
-     </div>
-     <div class="form-group">
-       <label>연락처</label>
-       <input type="tel" id="phone" placeholder="010-0000-0000" />    
-     </div>
-     <div class="form-group">
-       <label>참석 행사 (중복 선택 가능)</label>
-       <div class="checkbox-group">
-         <div class="checkbox-item">
-           <input type="checkbox" id="event1" value="창원 피로연" />  
-           <label for="event1">창원 피로연<span>4월 18일 토요일 |     
- 세코 더그레이드</span></label>
-         </div>
-         <div class="checkbox-item">
-           <input type="checkbox" id="event2" value="제주 피로연" />  
-           <label for="event2">제주 피로연<span>4월 18일 토요일 | 더  
- 컨벤션 제주</span></label>
-         </div>
-         <div class="checkbox-item">
-           <input type="checkbox" id="event3" value="제주 결혼식" />  
-           <label for="event3">제주 결혼식<span>4월 26일 일요일 |     
- 소설과 농담</span></label>
-         </div>
-       </div>
-     </div>
-     <button class="submit-btn" onclick="submitRSVP()">참석 여부      
- 전달하기</button>
-     <div class="form-result" id="form-result">
-       감사합니다 💚<br>참석 여부가 전달되었습니다.
-     </div>
-   </div>
- </section>
-
- <!-- ===== 하단 ===== -->
- <footer>
-   KYUNGMIN &amp; CHAEYOON<br>
-   2026. 04. 26
- </footer>
-
- <!-- 복사 완료 토스트 -->
- <div class="toast" id="toast">복사되었습니다</div>
-
- <script>
-   // ===== 주소/계좌 복사 기능 =====
-   function copyText(text, btn) {
-     navigator.clipboard.writeText(text).then(function() {
-       showToast('복사되었습니다');
-     }).catch(function() {
-       // 구형 브라우저 대응
-       var el = document.createElement('textarea');
-       el.value = text;
-       document.body.appendChild(el);
-       el.select();
-       document.execCommand('copy');
-       document.body.removeChild(el);
-       showToast('복사되었습니다');
-     });
-   }
-
-   function showToast(msg) {
-     var toast = document.getElementById('toast');
-     toast.textContent = msg;
-     toast.classList.add('show');
-     setTimeout(function() { toast.classList.remove('show'); },       
- 2000);
-   }
-
-   // ===== 참석 여부 전송 =====
-   function submitRSVP() {
-     var name = document.getElementById('name').value.trim();
-     var phone = document.getElementById('phone').value.trim();       
-     var events = [];
-
-     if (document.getElementById('event1').checked) events.push('창원 
-  피로연');
-     if (document.getElementById('event2').checked) events.push('제주 
-  피로연');
-     if (document.getElementById('event3').checked) events.push('제주 
-  결혼식');
-
-     if (!name) { alert('이름을 입력해주세요.'); return; }
-     if (events.length === 0) { alert('참석하실 행사를
- 선택해주세요.'); return; }
-
-     // ⭐ 수정 필요: 아래 URL을 4단계에서 복사한 앱스 스크립트 웹 앱 
-  URL로 교체
-     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwx4BNNc8DWTMpwQIevNQjEVlTN0Jw2SzYACQf-4gBghUObPoVvh4YgqeEHnzgZx5o_/exec' 
- 스크립트_URL_붙여넣기/exec';
-
-     fetch(SCRIPT_URL, {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify({ name: name, phone: phone, events:       
- events })
-     })
-     .then(function(res) { return res.json(); })
-     .then(function(data) {
-       document.querySelector('.submit-btn').style.display = 'none';  
-       document.getElementById('form-result').style.display =
- 'block';
-     })
-     .catch(function() {
-       // 네트워크 오류 시에도 성공 메시지 (데이터는 저장됨)
-       document.querySelector('.submit-btn').style.display = 'none';  
-       document.getElementById('form-result').style.display =
- 'block';
-     });
-   }
- </script>
-
- </body>
- </html>
- ```
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>경민 ♥ 채윤 결혼식</title>
+  <style>
+    /* ===== 전체 기본 설정 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Serif KR', 'Malgun Gothic', serif;
+      background-color: #f5f0e8;
+      color: #4a4a4a;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ===== 메인 타이틀 섹션 ===== */
+    .hero {
+      background: linear-gradient(160deg, #e8f4f0 0%, #f5f0e8 60%, #eaf0e8 100%);
+      text-align: center;
+      padding: 60px 30px 40px;
+      border-bottom: 1px solid #ddd5c5;
+    }
+
+    .hero-date {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #7a9e8a;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 400;
+      color: #3d3d3d;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 .heart {
+      color: #7a9e8a;
+      font-size: 20px;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: #999;
+      margin-top: 12px;
+    }
+
+    /* ===== 섹션 공통 ===== */
+    section {
+      padding: 40px 24px;
+      border-bottom: 1px solid #e8e0d0;
+    }
+
+    .section-title {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #7a9e8a;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* ===== 인사 편지 ===== */
+    .letter {
+      background: #fffdf8;
+      border: 1px solid #e8dfc8;
+      border-radius: 4px;
+      padding: 28px 24px;
+      line-height: 2;
+      font-size: 14px;
+      color: #555;
+      white-space: pre-line;
+    }
+
+    .letter-sign {
+      margin-top: 20px;
+      text-align: right;
+      font-size: 14px;
+      color: #7a9e8a;
+    }
+
+    /* ===== 일정 카드 ===== */
+    .schedule-card {
+      background: #fffdf8;
+      border: 1px solid #e8dfc8;
+      border-radius: 4px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .schedule-card:last-child { margin-bottom: 0; }
+
+    .schedule-tag {
+      display: inline-block;
+      background: #7a9e8a;
+      color: white;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .schedule-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #3d3d3d;
+      margin-bottom: 6px;
+    }
+
+    .schedule-date {
+      font-size: 13px;
+      color: #7a9e8a;
+      margin-bottom: 10px;
+    }
+
+    .schedule-note {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* ===== 주소 복사 버튼 ===== */
+    .address-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0ece2;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      gap: 8px;
+    }
+
+    .address-text {
+      font-size: 12px;
+      color: #666;
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid #7a9e8a;
+      color: #7a9e8a;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:active { background: #7a9e8a; color: white; }
+
+    /* ===== 사진 갤러리 ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    /* ===== 계좌번호 ===== */
+    .account-group {
+      margin-bottom: 24px;
+    }
+
+    .account-group h4 {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e8e0d0;
+    }
+
+    .account-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0ece2;
+    }
+
+    .account-info {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .account-info span {
+      display: block;
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ===== 참석 여부 폼 ===== */
+    .rsvp-form {
+      background: #fffdf8;
+      border: 1px solid #e8dfc8;
+      border-radius: 4px;
+      padding: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      font-size: 14px;
+      background: #fafafa;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #7a9e8a;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #d8d0c0;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #7a9e8a;
+      flex-shrink: 0;
+    }
+
+    .checkbox-item label {
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .checkbox-item label span {
+      display: block;
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: #7a9e8a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:active { background: #5d8a70; }
+
+    .form-result {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #7a9e8a;
+      display: none;
+    }
+
+    /* ===== 하단 ===== */
+    footer {
+      text-align: center;
+      padding: 30px 24px;
+      font-size: 12px;
+      color: #bbb;
+      letter-spacing: 2px;
+    }
+
+    /* ===== 복사 완료 토스트 ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- ===== 헤더 ===== -->
+<div class="hero">
+  <p class="hero-date">April 26, 2026</p>
+  <h1>경민 <span class="heart">♥</span> 채윤</h1>
+  <p style="font-size:13px; color:#888; margin-top:8px;">문경민 · 김채윤</p>
+  <p class="hero-sub">소설과 농담, 제주</p>
+</div>
+
+<!-- ===== 인사 편지 ===== -->
+<section>
+  <p class="section-title">Letter</p>
+  <div class="letter">안녕하세요.
+오는 4월 26일, 제주에서 결혼식을 올리는 문경민과 김채윤입니다.
+
+이 편지를 받으셨다면 오랜 시간 저희 두 사람, 혹은 부모님과 가까이 지낸 사이겠지요. 그간 함께해주셔서, 그리고 저희 두 사람의 결혼식 초청에 응해주셔서 정말 감사합니다.
+
+청첩은 '정중히 청하다'는 말과 '편지'라는 뜻이 더해진 말이라고 합니다. 무심히 결혼 날짜와 장소를 적어 보내기보다, 편지를 받아주신 분들께 감사 인사를 먼저 전해드리고 싶었습니다.
+
+지난 2021년 가을 처음 만나, 4년이 넘는 시간 동안 인연을 이어온 저희 두 사람이 가족이 되기로 약속하는 날에 자리를 빛내주셨으면 합니다. 보내주시는 박수와 격려만큼 다정하고 따뜻한 마음으로 앞길을 함께하겠습니다.</div>
+  <p class="letter-sign">경민, 채윤 드림</p>
+</section>
+
+<!-- ===== 결혼식 정보 ===== -->
+<section>
+  <p class="section-title">Information</p>
+  <div style="text-align:center; margin-bottom:24px;">
+    <p style="font-size:14px; color:#888; margin-bottom:4px;">신랑 측 부모님</p>
+    <p style="font-size:14px; color:#555;">문태범 · 김희자</p>
+    <p style="font-size:14px; color:#888; margin-top:12px; margin-bottom:4px;">신부 측 부모님</p>
+    <p style="font-size:14px; color:#555;">김일도 · 조은순</p>
+  </div>
+</section>
+
+<!-- ===== 일정 ===== -->
+<section>
+  <p class="section-title">Schedule</p>
+
+  <!-- 창원 피로연 -->
+  <div class="schedule-card">
+    <span class="schedule-tag">창원 피로연</span>
+    <h3>세코 더그레이드</h3>
+    <p class="schedule-date">2026년 4월 18일 토요일 | 오후 12시 – 3시</p>
+    <div class="address-box">
+      <p class="address-text">경남 창원시 성산구 원이대로 362<br>창원컨벤션센터 1층 세코연회장</p>
+      <button class="copy-btn" onclick="copyText('경남 창원시 성산구 원이대로 362 창원컨벤션센터 1층 세코연회장', this)">복사</button>
+    </div>
+  </div>
+
+  <!-- 제주 피로연 -->
+  <div class="schedule-card">
+    <span class="schedule-tag">제주 피로연</span>
+    <h3>더 컨벤션 제주</h3>
+    <p class="schedule-date">2026년 4월 18일 토요일 | 오후 12시 – 3시</p>
+    <div class="address-box">
+      <p class="address-text">제주시 연사6길 61<br>오션타워 3층</p>
+      <button class="copy-btn" onclick="copyText('제주시 연사6길 61 오션타워 3층', this)">복사</button>
+    </div>
+  </div>
+
+  <!-- 제주 결혼식 -->
+  <div class="schedule-card">
+    <span class="schedule-tag">제주 결혼식</span>
+    <h3>소설과 농담</h3>
+    <p class="schedule-date">2026년 4월 26일 일요일 | 오후 3시 30분</p>
+    <p class="schedule-note">카페에서 소규모로 진행합니다.</p>
+    <div class="address-box">
+      <p class="address-text">제주시 남성로 160<br>소설과 농담</p>
+      <button class="copy-btn" onclick="copyText('제주시 남성로 160 소설과 농담', this)">복사</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 사진 갤러리 ===== -->
+<section>
+  <p class="section-title">Gallery</p>
+  <div class="gallery-grid">
+    <!--
+      ⭐ 수정 필요: 아래 파일ID 부분을 구글 드라이브 사진 파일 ID로 교체
+      형식: https://drive.google.com/thumbnail?id=파일ID&sz=w800
+    -->
+    <img src="https://drive.google.com/thumbnail?id=1-eUZWTDDCOJb4P8Iz9DNcT9Sm81tziLs&sz=w800" alt="웨딩 사진 1" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=11tOxeJQUeXUGGP5ZAaa1QuxGDu3umxWH&sz=w800" alt="웨딩 사진 2" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=12mQtu0MdvlA9L75lop1vabgo_aFNEfhV&sz=w800" alt="웨딩 사진 3" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=16MLzve5LI9kmEd4MAR7aicx2xE-VILht&sz=w800" alt="웨딩 사진 4" onerror="this.style.display='none'" />
+    <!-- ⭐ 아래 파일ID_5 ~ 파일ID_15를 추가 사진의 파일 ID로 교체 -->
+    <img src="https://drive.google.com/thumbnail?id=파일ID_5&sz=w800" alt="웨딩 사진 5" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_6&sz=w800" alt="웨딩 사진 6" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_7&sz=w800" alt="웨딩 사진 7" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_8&sz=w800" alt="웨딩 사진 8" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_9&sz=w800" alt="웨딩 사진 9" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_10&sz=w800" alt="웨딩 사진 10" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_11&sz=w800" alt="웨딩 사진 11" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_12&sz=w800" alt="웨딩 사진 12" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_13&sz=w800" alt="웨딩 사진 13" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_14&sz=w800" alt="웨딩 사진 14" onerror="this.style.display='none'" />
+    <img src="https://drive.google.com/thumbnail?id=파일ID_15&sz=w800" alt="웨딩 사진 15" onerror="this.style.display='none'" />
+  </div>
+</section>
+
+<!-- ===== 마음 전하실 곳 ===== -->
+<section>
+  <p class="section-title">Account</p>
+
+  <div class="account-group">
+    <h4>신랑 측</h4>
+    <div class="account-row">
+      <div class="account-info">
+        문태범
+        <span>농협 901017-56-109599</span>
+      </div>
+      <button class="copy-btn" onclick="copyText('농협 901017-56-109599 문태범', this)">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        김희자
+        <span>농협 178495-52-115871</span>
+      </div>
+      <button class="copy-btn" onclick="copyText('농협 178495-52-115871 김희자', this)">복사</button>
+    </div>
+  </div>
+
+  <div class="account-group">
+    <h4>신부 측</h4>
+    <div class="account-row">
+      <div class="account-info">
+        김일도
+        <span>경남은행 600-22-0098565</span>
+      </div>
+      <button class="copy-btn" onclick="copyText('경남은행 600-22-0098565 김일도', this)">복사</button>
+    </div>
+    <div class="account-row">
+      <div class="account-info">
+        조은순
+        <span>농협 808-12-523663</span>
+      </div>
+      <button class="copy-btn" onclick="copyText('농협 808-12-523663 조은순', this)">복사</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 참석 여부 ===== -->
+<section>
+  <p class="section-title">RSVP</p>
+  <div class="rsvp-form">
+    <div class="form-group">
+      <label>이름</label>
+      <input type="text" id="name" placeholder="성함을 입력해주세요" />
+    </div>
+    <div class="form-group">
+      <label>연락처</label>
+      <input type="tel" id="phone" placeholder="010-0000-0000" />
+    </div>
+    <div class="form-group">
+      <label>참석 행사 (중복 선택 가능)</label>
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="event1" value="창원 피로연" />
+          <label for="event1">창원 피로연<span>4월 18일 토요일 | 세코 더그레이드</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="event2" value="제주 피로연" />
+          <label for="event2">제주 피로연<span>4월 18일 토요일 | 더 컨벤션 제주</span></label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="event3" value="제주 결혼식" />
+          <label for="event3">제주 결혼식<span>4월 26일 일요일 | 소설과 농담</span></label>
+        </div>
+      </div>
+    </div>
+    <button class="submit-btn" onclick="submitRSVP()">참석 여부 전달하기</button>
+    <div class="form-result" id="form-result">
+      감사합니다 💚<br>참석 여부가 전달되었습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== 하단 ===== -->
+<footer>
+  KYUNGMIN &amp; CHAEYOON<br>
+  2026. 04. 26
+</footer>
+
+<!-- 복사 완료 토스트 -->
+<div class="toast" id="toast">복사되었습니다</div>
+
+<script>
+  // ===== 주소/계좌 복사 기능 =====
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('복사되었습니다');
+    }).catch(function() {
+      var el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast('복사되었습니다');
+    });
+  }
+
+  function showToast(msg) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2000);
+  }
+
+  // ===== 참석 여부 전송 =====
+  function submitRSVP() {
+    var name = document.getElementById('name').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var events = [];
+
+    if (document.getElementById('event1').checked) events.push('창원 피로연');
+    if (document.getElementById('event2').checked) events.push('제주 피로연');
+    if (document.getElementById('event3').checked) events.push('제주 결혼식');
+
+    if (!name) { alert('이름을 입력해주세요.'); return; }
+    if (events.length === 0) { alert('참석하실 행사를 선택해주세요.'); return; }
+
+    // ⭐ 수정 필요: 아래 URL을 4단계에서 복사한 앱스 스크립트 웹 앱 URL로 교체
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwx4BNNc8DWTMpwQIevNQjEVlTN0Jw2SzYACQf-4gBghUObPoVvh4YgqeEHnzgZx5o_/exec';
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, events: events })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      document.querySelector('.submit-btn').style.display = 'none';
+      document.getElementById('form-result').style.display = 'block';
+    })
+    .catch(function() {
+      document.querySelector('.submit-btn').style.display = 'none';
+      document.getElementById('form-result').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
